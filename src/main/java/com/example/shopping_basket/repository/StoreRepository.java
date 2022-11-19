@@ -1,4 +1,4 @@
 package com.example.shopping_basket.repository;
 
-public interface storeRepository {
+public interface StoreRepository {
 }
