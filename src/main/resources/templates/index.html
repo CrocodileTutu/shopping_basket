@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Shopping Cart</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="row">
+    <div class="ui my-auto col-md-5 mx-auto">
+        <div class="container-fluid"><h2 class="w-50 mx-auto my-4">SALES TAXES</h2></div>
+        <div class="container-fluid">
+            <a th:href="@{/buyer}" class="btn btn-success my-4 mx-4 px-5 py-4"><i class="fa fa-buyer"></i> Buyer</a>
+            <a th:href="@{/vendor}" class="btn btn-success my-4 mx-4 px-5 py-4"><i class="fa fa-vendor"></i> Vendor</a>
+        </div>
+    </div>
+    <br>
+    <div class="ui my-auto col-md-8 mx-auto">
+        <div class="container-fluid">
+            <h3>Precondition / Todo:</h3>
+            <ul>
+                <li>Create a database and call it "db_shopping_basket or alternatively rename it in "application.properties".</li>
+                <li>Adapt port of Tomcat and hostname in "application.properties" if necessary.</li>
+                <li>Adapt port, username, and password of DB in "application.properties" if necessary.</li>
+                <li>After starting of Tomcat create some products on the "Vendor" page.</li>
+                <li>"Vendor" link is to preset and "Buyer" is test page.</li>
+                <li>So go to the "Vendor" page to use it like a stock administrator.</li>
+                <li>Then this web application is ready to operate. It is more or less self-explanatory and intuitive.</li>
+                <li>Go to the "Buyer" page to use it like a customer.</li>
+            </ul>
+        </div>
+    </div>
+</div>
+</body>
+</html>
