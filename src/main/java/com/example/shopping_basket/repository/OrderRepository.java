@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface OrderRepository extends JpaRepository<OrderModel, Long> {
-    OrderModel findBySessionToken(String sessionToken);
+    // OrderModel findBySessionToken(String sessionToken);
 }
