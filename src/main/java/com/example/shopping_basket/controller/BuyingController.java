@@ -24,6 +24,12 @@ public class BuyingController {
     @Autowired
     private BuyingService buyingService;
 
+    @GetMapping("/buyer")
+    public String viewAllItems(Model model) {
+        model.addAttribute("all_items", buyingService.getAllItems());
+        return "/buyer/index";
+    }
+
     @GetMapping("/buyer/add/{id}")
     public String addToCart (@PathVariable("id") Long id) {
         BuyingModel item = new BuyingModel();
@@ -35,8 +41,8 @@ public class BuyingController {
         item.setPrice(String.valueOf(storeService.getItemById(id).getPrice()));
 
         // ToDo: Implementation in BuyingServiceImpl
-        Double shelfPrice = buyingService.getItemPriceAndTaxById(id);
-        item.setPriceAndTax(String.valueOf(shelfPrice));
+//        Double shelfPrice = buyingService.getItemPriceAndTaxById(id);
+//        item.setPriceAndTax(String.valueOf(shelfPrice));
 
         System.out.println("ID of product: "+id);
         System.out.println(item);

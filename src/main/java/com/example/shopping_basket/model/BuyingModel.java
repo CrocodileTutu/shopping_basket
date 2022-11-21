@@ -30,8 +30,8 @@ public class BuyingModel {
     @Column(name = "price")
     private String price;
 
-    @Column(name = "price_and_tax")
-    private String priceAndTax;
+//    @Column(name = "price_and_tax")
+//    private String priceAndTax;
 
     @Temporal(TemporalType.DATE)
     private Date date;
