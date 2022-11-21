@@ -14,13 +14,8 @@ import static org.springframework.data.domain.Sort.Direction.DESC;
 @Service
 public class StoreServiceImpl implements StoreService {
 
-    private final StoreRepository storeRepository;
-
     @Autowired
-    public StoreServiceImpl(StoreRepository storeRepository) {
-
-        this.storeRepository = storeRepository;
-    }
+    private StoreRepository storeRepository;
 
     @Override
     public List<StoreModel> getAllItems() {
@@ -54,8 +49,10 @@ public class StoreServiceImpl implements StoreService {
 
     @Override
     public void deleteItemById(Long id) {
-
         storeRepository.deleteById(id);
     }
 
+    public Long createNewItem(StoreModel model) {
+        return null;
+    }
 }

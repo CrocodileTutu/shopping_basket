@@ -1,7 +1,6 @@
 package com.example.shopping_basket.model;
 
 import lombok.*;
-
 import javax.persistence.*;
 
 @AllArgsConstructor
@@ -22,12 +21,12 @@ public class StoreModel {
     @Column(name = "quantity")
     private int quantity;
 
-    @Column(name = "price")
-    private Double price;
-
     @Column(name = "imported")
     private boolean imported;
 
     @Column(name = "book_food_medical")
     private boolean bookFoodMedical;
+
+    @Column(name = "price")
+    private Double price;
 }

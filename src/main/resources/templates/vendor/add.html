@@ -18,7 +18,7 @@
         <div class="mb-3">
             <form class="ui form" action="#" th:action="@{/vendor/save}" th:object="${item}" method="POST">
                 <input type="text" th:field="*{name}" placeholder="Item" class="form-control mb-4 col-4">
-                <input type="text" th:field="*{price}" placeholder="Price" class="form-control mb-4 col-4">
+                <input type="text" th:field="*{price}" placeholder="Price in &euro;" class="form-control mb-4 col-4">
                 <label class="form-label mb-1 col-4">Import Charge Rate</label>
                 <select class="form-control mb-4 col-4" th:field="*{imported}">
                     <option value="1" selected>Imported (+5% Charge)</option>
@@ -26,8 +26,8 @@
                 </select>
                 <label class="form-label mb-1 col-4">Sales Tax</label>
                 <select class="form-control mb-4 col-4" th:field="*{bookFoodMedical}">
-                    <option value="0">Book, Food, or Medical Product (0% VAT)</option>
                     <option value="1" selected>Other Product (10% VAT)</option>
+                    <option value="0">Book, Food, or Medical Product (0% VAT)</option>
                 </select>
                 <button type="submit" class="btn btn-info col-2">Save Item</button>
             </form>

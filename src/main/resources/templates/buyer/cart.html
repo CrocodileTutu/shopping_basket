@@ -9,13 +9,69 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
+<style>
+.number { text-align:right; font-weight:normal; color:maroon; }
+.number_bold { text-align:right; font-weight:bold; color:black; }
+    </style>
+
 <body>
 <div class="row">
-    <div class="ui col-md-10 mx-auto my-2">
+    <div class="ui col-md-8 mx-auto my-2">
         <hr>
-        <h2>Shopping Cart</h2>
+        <div class="mt-5 mb-3 clearfix">
+            <h2 class="pull-left">Shopping Cart</h2>
+            <div class="pull-right">
+                <a href="#" class="btn btn-primary pull-right ml-2"><i class="fa fa-arrow-right"></i> Checkout</a>
+                <a th:href="@{/buyer}" class="btn btn-success pull-right ml-2"><i class="fa fa-shopping-cart"></i> Continue Shopping</a>
+            </div>
+        </div>
+        <table border="1"
+               class = "table table-striped table-responsive-md">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Item</th>
+                <th>Price in &euro;</th>
+                <th>Quantity</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="item:${all_items}">
+                <td th:text="${item.id}"></td>
+                <td th:text="${item.item}"></td>
+                <td th:text="${#numbers.formatDecimal(item.price, 0, 'COMMA', 2, 'POINT')}" class="number"></td>
+                <td>1</td>
+            </tr>
+            </tbody>
+        </table>
+
+        <table border="0"
+               class = "table table-responsive-md">
+            <!--            <thead>-->
+            <!--            <tr>-->
+            <!--                <th></th>-->
+            <!--                <th></th>-->
+            <!--                <th></th>-->
+            <!--                <th></th>-->
+            <!--            </tr>-->
+            <!--            </thead>-->
+            <tbody>
+            <tr>
+                <td></td>
+                <td></td>
+                <!--                <td th:text="${#numbers.formatDecimal(tax, 0, 'COMMA', 2, 'POINT')}" class="number"></td>-->
+                <!--                <td th:text="${#numbers.formatDecimal(total, 0, 'COMMA', 2, 'POINT')}" class="number"></td>-->
+                <td>Tax: <span th:text="${#numbers.formatDecimal(tax, 0, 'COMMA', 2, 'POINT')}" class="number_bold"></span> &euro;</td>
+                <td>Total: <span th:text="${#numbers.formatDecimal(total, 0, 'COMMA', 2, 'POINT')}" class="number_bold"></span> &euro;</td>
+            </tr>
+            </tbody>
+        </table>
+
+
+
 
     </div>
+    <hr>
 </div>
 </body>
 </html>

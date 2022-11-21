@@ -2,8 +2,6 @@ package com.example.shopping_basket.model_test_cases;
 
 import com.example.shopping_basket.controller.StoreController;
 import com.example.shopping_basket.model.StoreModel;
-import com.example.shopping_basket.service.OrderServiceImpl;
-import com.example.shopping_basket.service.StoreServiceImpl;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
