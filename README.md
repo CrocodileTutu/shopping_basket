@@ -10,7 +10,7 @@
 
 
 ## Todo's
-+ Create a database and call it "db_sales_tax" or alternatively rename it in "application.properties".
++ Create a database and call it "db_shopping_basket" or alternatively rename it in "application.properties".
 + Adapt ports (Tomcat and DB) and hostname in "application.properties" if necessary.
 + After starting of Tomcat create some products on the "Vendor" page (default: http://localhost:8080 ).
 + The button "Vendor" is to preset the stock/store and the button "Buyer" is the shopping page. So first go to the "Vendor" page.
