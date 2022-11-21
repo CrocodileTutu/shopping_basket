@@ -26,7 +26,7 @@ public class BuyingController {
 
     @GetMapping("/buyer")
     public String viewAllItems(Model model) {
-        model.addAttribute("all_items", buyingService.getAllItems());
+        model.addAttribute("all_items", storeService.getAllItems());
         return "/buyer/index";
     }
 
@@ -38,14 +38,8 @@ public class BuyingController {
         item.setDate(new Date());
         item.setItemId(id);
         item.setItem(storeService.getItemById(id).getName());
-        item.setPrice(String.valueOf(storeService.getItemById(id).getPrice()));
-
-        // ToDo: Implementation in BuyingServiceImpl
-//        Double shelfPrice = buyingService.getItemPriceAndTaxById(id);
-//        item.setPriceAndTax(String.valueOf(shelfPrice));
-
-        System.out.println("ID of product: "+id);
-        System.out.println(item);
+        item.setShelfPrice(storeService.getItemById(id).getShelfPrice());
+        item.setTaxes(storeService.getItemById(id).getTaxes());
         buyingService.save(item);
         return "redirect:/buyer";
     }

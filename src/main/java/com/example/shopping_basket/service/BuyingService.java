@@ -24,5 +24,4 @@ public interface BuyingService {
     Double getItemPriceAndTaxById(Long id);
 
     Long getItemIdById(Long id);
-
 }

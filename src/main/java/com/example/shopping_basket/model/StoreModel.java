@@ -29,4 +29,10 @@ public class StoreModel {
 
     @Column(name = "price")
     private Double price;
+
+    @Column(name = "shelf_price")
+    private Double shelfPrice;
+
+    @Column(name = "taxes")
+    private Double taxes;
 }

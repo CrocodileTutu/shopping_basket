@@ -37,6 +37,21 @@ public class StoreController {
 
     @PostMapping("/vendor/save")
     public String saveItem(@ModelAttribute("item") StoreModel storeModel) {
+        Double shelfPrice = 0.0;
+        Double importDuty = 0.0;
+        Double vat = 0.0;
+        service.save(storeModel);
+        shelfPrice = storeModel.getPrice();
+
+        if (storeModel.isImported()) {
+            importDuty = storeModel.getPrice() * 0.05; // 5%
+        }
+        if (storeModel.isBookFoodMedical()) {
+            vat = storeModel.getPrice() * 0.1; // 10%
+        }
+        shelfPrice += (importDuty + vat);
+        storeModel.setShelfPrice(shelfPrice);
+        storeModel.setTaxes(importDuty + vat);
         service.save(storeModel);
         return "redirect:/vendor";
     }

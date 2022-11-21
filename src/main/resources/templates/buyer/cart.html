@@ -21,8 +21,8 @@
         <div class="mt-5 mb-3 clearfix">
             <h2 class="pull-left">Shopping Cart</h2>
             <div class="pull-right">
-                <a href="#" class="btn btn-primary pull-right ml-2"><i class="fa fa-arrow-right"></i> Checkout</a>
-                <a th:href="@{/buyer}" class="btn btn-success pull-right ml-2"><i class="fa fa-shopping-cart"></i> Continue Shopping</a>
+                <a href="#" class="btn btn-sm btn-primary pull-right ml-2"><i class="fa fa-arrow-right"></i> Checkout</a>
+                <a th:href="@{/buyer}" class="btn btn-sm btn-success pull-right ml-2"><i class="fa fa-shopping-cart"></i> Continue Shopping</a>
             </div>
         </div>
         <table border="1"
@@ -31,7 +31,8 @@
             <tr>
                 <th>ID</th>
                 <th>Item</th>
-                <th>Price in &euro;</th>
+                <th>Shelf Price in &euro;</th>
+                <th>Taxes in &euro;</th>
                 <th>Quantity</th>
             </tr>
             </thead>
@@ -39,37 +40,23 @@
             <tr th:each="item:${all_items}">
                 <td th:text="${item.id}"></td>
                 <td th:text="${item.item}"></td>
-                <td th:text="${#numbers.formatDecimal(item.price, 0, 'COMMA', 2, 'POINT')}" class="number"></td>
+                <td th:text="${#numbers.formatDecimal(item.shelfPrice, 0, 'COMMA', 2, 'POINT')}" class="number"></td>
+                <td th:text="${#numbers.formatDecimal(item.taxes, 0, 'COMMA', 2, 'POINT')}" class="number"></td>
                 <td>1</td>
             </tr>
             </tbody>
         </table>
-
         <table border="0"
                class = "table table-responsive-md">
-            <!--            <thead>-->
-            <!--            <tr>-->
-            <!--                <th></th>-->
-            <!--                <th></th>-->
-            <!--                <th></th>-->
-            <!--                <th></th>-->
-            <!--            </tr>-->
-            <!--            </thead>-->
             <tbody>
             <tr>
                 <td></td>
                 <td></td>
-                <!--                <td th:text="${#numbers.formatDecimal(tax, 0, 'COMMA', 2, 'POINT')}" class="number"></td>-->
-                <!--                <td th:text="${#numbers.formatDecimal(total, 0, 'COMMA', 2, 'POINT')}" class="number"></td>-->
                 <td>Tax: <span th:text="${#numbers.formatDecimal(tax, 0, 'COMMA', 2, 'POINT')}" class="number_bold"></span> &euro;</td>
                 <td>Total: <span th:text="${#numbers.formatDecimal(total, 0, 'COMMA', 2, 'POINT')}" class="number_bold"></span> &euro;</td>
             </tr>
             </tbody>
         </table>
-
-
-
-
     </div>
     <hr>
 </div>

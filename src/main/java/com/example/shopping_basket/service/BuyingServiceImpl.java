@@ -18,11 +18,13 @@ public class BuyingServiceImpl implements BuyingService {
 
     @Override
     public List<BuyingModel> getAllItems() {
+
         return buyingRepository.findAll();
     }
 
     @Override
     public void save(BuyingModel buyingModel) {
+
         buyingRepository.save(buyingModel);
     }
 
@@ -51,26 +53,8 @@ public class BuyingServiceImpl implements BuyingService {
 
     @Override
     public Double getItemTaxById(Long id) {
-        Double importDuty = 0.0;
-        Double vat = 0.0;
-        Double price = storeService.getItemById(id).getPrice();
-        /* Import charge = 5% */
-        if (storeService.getItemById(id).isImported()) {
-            System.out.println("Imported");
-            System.out.println("Price (before) : " + price);
-            importDuty = price * 5 / 100;
-            System.out.println("Price (after) : " + (price * (1 + importDuty)));
-        }
-        /* normal product (not books, not food, and not medical) = 10% */
-        if (storeService.getItemById(id).isBookFoodMedical()) {
-            System.out.println("Normal Good");
-            System.out.println("Price (before) : " + price);
-            vat = price * 10 / 100;
-            System.out.println("Price (after): " + (price * (1 + vat)));
-        }
-        System.out.println("taxes: " + (vat+importDuty));
-        System.out.println("Price (w taxes): " + (price * (vat+importDuty)));
-        return (vat + importDuty);
+        Double taxes = storeService.getItemById(id).getTaxes();
+        return taxes;
     }
 
     @Override
@@ -82,7 +66,7 @@ public class BuyingServiceImpl implements BuyingService {
     public Double getItemPriceAndTaxById(Long id) {
         Double priceAndTax = 0.0;
         // ToDo : Implementation
-
+        // not needed yet
         return priceAndTax;
     }
 

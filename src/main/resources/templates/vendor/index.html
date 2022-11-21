@@ -19,8 +19,8 @@
         <div class="mt-5 mb-3 clearfix">
             <h2 class="pull-left">Product Detail</h2>
             <div class="pull-right">
-                <a th:href="@{/}" class="btn btn-warning pull-right ml-2"><i class="fa fa-home"></i> Home</a>
-                <a th:href="@{/vendor/add}" class="btn btn-success pull-right ml-2"><i class="fa fa-plus"></i> Add Item</a>
+                <a th:href="@{/}" class="btn btn-sm btn-warning pull-right ml-2"><i class="fa fa-home"></i> Home</a>
+                <a th:href="@{/vendor/add}" class="btn btn-sm btn-success pull-right ml-2"><i class="fa fa-plus"></i> Add Item</a>
             </div>
         </div>
         <table border="1"
@@ -32,6 +32,8 @@
                 <th>Price in &euro;</th>
                 <th>Import Charge (+5%)</th>
                 <th>Sales Tax (+10%)</th>
+                <th>Taxes in &euro;</th>
+                <th>Shelf Price in &euro;</th>
                 <th>Action</th>
             </tr>
             </thead>
@@ -50,10 +52,12 @@
                         <span th:if="${condition}">yes</span>
                         <span th:unless="${condition}">no</span>
                     </div></td>
+                <td th:text="${#numbers.formatDecimal(item.taxes, 0, 'COMMA', 2, 'POINT')}" class="number"></td>
+                <td th:text="${#numbers.formatDecimal(item.shelfPrice, 0, 'COMMA', 2, 'POINT')}" class="number"></td>
                 <td> <a th:href="@{/vendor/update/{id}(id=${item.id})}"
-                        class="btn btn-primary ml-2">Update</a>
+                        class="btn btn-sm btn-primary ml-2">Update</a>
                     <a th:href="@{/vendor/delete/{id}(id=${item.id})}"
-                       class="btn btn-danger ml-2">Delete</a>
+                       class="btn btn-sm btn-danger ml-2">Delete</a>
                 </td>
             </tr>
             </tbody>

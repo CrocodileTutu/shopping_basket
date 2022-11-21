@@ -27,11 +27,11 @@ public class BuyingModel {
     @Column(name = "item")
     private String item;
 
-    @Column(name = "price")
-    private String price;
+    @Column(name = "shelf_price")
+    private Double shelfPrice;
 
-//    @Column(name = "price_and_tax")
-//    private String priceAndTax;
+    @Column(name = "taxes")
+    private Double taxes;
 
     @Temporal(TemporalType.DATE)
     private Date date;

@@ -9,5 +9,4 @@ public interface StoreService {
     void save(StoreModel storeModel);
     StoreModel getItemById(Long id);
     void deleteItemById(Long id);
-
 }

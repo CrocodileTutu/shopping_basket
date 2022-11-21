@@ -14,7 +14,6 @@
     <div class="ui col-md-10 mx-auto my-2">
         <hr>
         <h2>Add Item</h2>
-
         <div class="mb-3">
             <form class="ui form" action="#" th:action="@{/vendor/save}" th:object="${item}" method="POST">
                 <input type="text" th:field="*{name}" placeholder="Item" class="form-control mb-4 col-4">
@@ -33,7 +32,6 @@
             </form>
         </div>
         <hr>
-
         <a th:href="@{/vendor}"> Back to Item List</a>
     </div>
 </div>
