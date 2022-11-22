@@ -13,27 +13,35 @@ import org.mockito.Captor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.ui.Model;
 
 import java.util.Date;
 
 @ExtendWith(SpringExtension.class)
 @WebMvcTest(StoreController.class)
 @DataJpaTest
+@SpringBootTest
 public class BuyingModelTest {
 
+//    @Autowired
+//    private MockMvc mockMvc;
+//    @Autowired
+//    private ObjectMapper objectMapper;
+//    @MockBean
+//    private BuyingServiceImpl buyingService;
+//    @MockBean
+//    private StoreServiceImpl storeService;
+//    @Captor
+//    private ArgumentCaptor<StoreModel> argumentCaptor;
+
     @Autowired
-    private MockMvc mockMvc;
-    @Autowired
-    private ObjectMapper objectMapper;
-    @MockBean
     private BuyingServiceImpl buyingService;
-    @MockBean
+    @Autowired
     private StoreServiceImpl storeService;
-    @Captor
-    private ArgumentCaptor<StoreModel> argumentCaptor;
 
     @Test
     void addItemToCart() {
@@ -47,23 +55,24 @@ public class BuyingModelTest {
         buyingService.save(model);
 
         // then
-
     }
 
     @Test
     void addToCart() {
         // given
-        StoreModel model = new StoreModel();
+        BuyingModel model = new BuyingModel();
+//        StoreModel model = new StoreModel();
         model.setId(1000L);
-        model.setName("Apple (kg)");
-        model.setPrice(2.50);
+//        model.setName("Apple (kg)");
+//        model.setPrice(2.50);
         model.setQuantity(500);
-        model.setImported(true);
-        model.setBookFoodMedical(false);
+//        model.setImported(true);
+//        model.setBookFoodMedical(false);
         model.setTaxes(0.10);
 
         // when
-        storeService.save(model);
+        buyingService.save(model);
+//        storeService.save(model);
 
         // then
         BuyingModel buyingModel = new BuyingModel();
