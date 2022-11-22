@@ -8,8 +8,9 @@
 + Thymeleaf 3.0.15.RELEASE
 + Bootstrap 4.5.2 (CDN)
 
+<br/>
 
-## Todo's
+## Todo
 + Create a database and call it "db_shopping_basket" or alternatively rename it in "application.properties".
 + Adapt ports (Tomcat and DB) and hostname in "application.properties" if necessary.
 + After starting of Tomcat create some products on the "Vendor" page (default: http://localhost:8080 ).
@@ -17,5 +18,53 @@
 + It is more or less self-explanatory and intuitive.
 + For Shopping Basket go to the "Buyer" page and add some items to Cart.
 + Do not forget to empty the shopping cart before you start a new order.
+
+<br/>
+<br/>
+
+## Start Page
+
+![pic1.jpg](/img/pic1.jpg?raw=true "Start Page")
+
+<br/>
+<br/>
+
+## Add Item in Vendor Page
+
+![pic2.jpg](/img/pic2.jpg?raw=true "Add Item in Vendor Page")
+
+<br/>
+<br/>
+
+## Update Item in Vendor Page
+
+![pic3.jpg](/img/pic3.jpg?raw=true "Update Item in Vendor Page")
+
+<br/>
+<br/>
+
+## List of Items in Vendor Page
+
+![pic4.jpg](/img/pic4.jpg?raw=true "List of Items in Vendor Page")
+
+<br/>
+<br/>
+
+## Buyer Page
+
+![pic5.jpg](/img/pic5.jpg?raw=true "Buyer Page")
+
+<br/>
+<br/>
+
+## Shopping Cart Page
+
+![pic6.jpg](/img/pic6.jpg?raw=true "Shopping Cart Page")
+
+<br/>
+<br/>
+<br/>
+<br/>
+
 
 
