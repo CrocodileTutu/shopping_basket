@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
 import java.util.List;
-
 @Controller
 public class BuyingController {
 
@@ -26,6 +25,13 @@ public class BuyingController {
 
     @GetMapping("/buyer")
     public String viewAllItems(Model model) {
+        deleteAllItems(); // clean before a new order
+        model.addAttribute("all_items", storeService.getAllItems());
+        return "/buyer/index";
+    }
+
+    @GetMapping("/buyer/continue")
+    public String continueShopping(Model model) {
         model.addAttribute("all_items", storeService.getAllItems());
         return "/buyer/index";
     }
@@ -41,7 +47,7 @@ public class BuyingController {
         item.setShelfPrice(storeService.getItemById(id).getShelfPrice());
         item.setTaxes(storeService.getItemById(id).getTaxes());
         buyingService.save(item);
-        return "redirect:/buyer";
+        return "redirect:/buyer/continue";
     }
 
     @GetMapping("/buyer/delete_all")
@@ -75,5 +81,10 @@ public class BuyingController {
         model.addAttribute("tax", sumTax);
         model.addAttribute("total", sumWithTax);
         return "/buyer/cart";
+    }
+
+    @GetMapping("/buyer/checkout")
+    public String goToCheckout() {
+        return "/buyer/checkout";
     }
 }
